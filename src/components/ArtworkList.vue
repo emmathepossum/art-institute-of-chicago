@@ -46,7 +46,7 @@ export default {
 .artwork {
     list-style: none;
     border-style: solid;
-    border-color: #767676;
+    border-color: #d2d2d2;
     border-width: 2px;
     padding: 5px;
 }
@@ -68,10 +68,14 @@ img {
 .artwork__title-artwork {
     font-size: 20px;
     margin-bottom: 5px;
-    color: #bbbbbb;
+    color: #fff;
     font-weight: bold;
 }
 .artwork__title-artist {
-    color: #9c9c9c;
+    color: #d2d2d2;
+}
+
+:link {
+    color: inherit;
 }
 </style>

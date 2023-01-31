@@ -1,1 +1,1 @@
-Vue App to display the Library to the Art Institute of Chicago
+Vue App to display the Library for the Art Institute of Chicago
