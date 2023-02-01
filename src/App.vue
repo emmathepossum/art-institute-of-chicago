@@ -1,6 +1,7 @@
 <script lang="ts">
 import ArtworkList from './components/ArtworkList.vue';
 import SearchField from './components/SearchField.vue';
+import ChicagoArtAPI from './services/ChicagoArtAPI';
 import type ArtworkListInterface from './interfaces/ArtworkList.interface';
 
 export default {
@@ -12,36 +13,26 @@ export default {
   data() {
     return {
       isLoaded: false,
-      artworkData: {} as ArtworkListInterface,
-      apiUrl: 'https://api.artic.edu/api/v1/artworks',
-      apiQuery: '/search?q=',
-      apiFields: '?fields=id,image_id,title,artist_display,date_display,thumbnail'
+      artworkData: {} as ArtworkListInterface
     }
   },
   methods: {
-    async getArt(query: string) {
-      let url = this.apiUrl+this.apiFields;
-      if (query) {
-        url = this.apiUrl+this.apiQuery+query+this.apiFields;
-      }
-      console.log(url);
-      let response = await fetch(url);
-      let data = await response.json();
-      return data;
-    },
-    getData(query: string) {
-      this.getArt(query).then((data) => {
-        this.artworkData = data.data;
+    getData(ids?: number[]) {
+      ChicagoArtAPI.getArt(ids).then((data) => {
+        this.artworkData = data;
+        // TODO artworkPagination = data.pagination
         this.isLoaded = true;
       });
     },
     handleQuery(query: string) {
-      console.log(query);
-      this.getData(query);
+      ChicagoArtAPI.getQueriedIds(query).then((data) => {
+        let ids = data.map((art: ArtworkListInterface) => art.id);
+        this.getData(ids);
+      });
     }
   },
   created() {
-    this.getData('');
+    this.getData();
   }
 }
 </script>

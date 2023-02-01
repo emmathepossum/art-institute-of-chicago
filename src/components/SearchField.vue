@@ -20,7 +20,7 @@ export default {
 <template>
     <div class="search-field">
         <input class="search-input" type="text" placeholder="Search" v-model="query" @keydown.enter="onQuery" />
-        <button class="search-button" @click="onQuery">Submit</button>
+        <button class="search-button" @click="onQuery">Search</button>
     </div>
 </template>
 

@@ -4,9 +4,9 @@ export default {
     name: 'ArtworkList',
     props: ['data'],
     methods: {
-        getImgUrl(id: number): string {
-            if (id !== null) {
-                return `https://www.artic.edu/iiif/2/${id}/full/843,/0/default.jpg`;
+        getImgUrl(img_id: number): string {
+            if (img_id !== null || img_id !== undefined) {
+                return `https://www.artic.edu/iiif/2/${img_id}/full/843,/0/default.jpg`;
             } else {
                 return window.location.href;
             }
