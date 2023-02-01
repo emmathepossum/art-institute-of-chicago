@@ -38,8 +38,8 @@ export default {
     display: grid;
     justify-content: center;
     gap: 10px;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
+    grid-template-rows: repeat(auto-fill, 1fr);
     margin: 5px;
 }
 

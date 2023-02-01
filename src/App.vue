@@ -13,6 +13,7 @@ export default {
   data() {
     return {
       isLoaded: false,
+      isEmpty: false,
       artworkData: {} as ArtworkListInterface
     }
   },
@@ -20,14 +21,19 @@ export default {
     getData(ids?: number[]) {
       ChicagoArtAPI.getArt(ids).then((data) => {
         this.artworkData = data;
-        // TODO artworkPagination = data.pagination
         this.isLoaded = true;
+        this.isEmpty = false;
       });
     },
     handleQuery(query: string) {
       ChicagoArtAPI.getQueriedIds(query).then((data) => {
         let ids = data.map((art: ArtworkListInterface) => art.id);
-        this.getData(ids);
+        if(ids.length) {
+          this.getData(ids);
+        } else {
+          this.artworkData = {} as ArtworkListInterface;
+          this.isEmpty = true;
+        }
       });
     }
   },
@@ -39,6 +45,7 @@ export default {
 
 <template>
   <SearchField @queried="handleQuery" />
+  <div v-if="isEmpty">There are no results for this query</div>
   <ArtworkList v-if="isLoaded" :data="artworkData" />
 </template>
 

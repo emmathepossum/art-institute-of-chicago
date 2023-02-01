@@ -1,0 +1,12 @@
+version: "3"
+services:
+  art-institute-of-chicago:
+    build: ./
+    container_name: art-institute-of-chicago
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Berlin
+    ports:
+      - 127.0.0.1:8321:8080
+    restart: unless-stopped
