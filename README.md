@@ -9,7 +9,7 @@ run cypress tests: `npx cypress run`
 
 - sometimes the AIC API does not deliver images
 
-![Error in the App](https://i.imgur.com/Vz7Nqpe.png)
+![Error in the App](https://i.imgur.com/8SeuRUO.png)
 
 ![Error in the Official Website](https://i.imgur.com/QjdtSFh.jpeg)
 
