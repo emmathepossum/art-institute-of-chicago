@@ -19,13 +19,13 @@ export default {
 <template>
     <div class="artwork-list">
         <li v-for="item in data" class="artwork-list__item">
-            <div class="artwork">
+            <div class="card artwork">
                 <a :href="getImgUrl(item.image_id)">
-                    <img :src="getImgUrl(item.image_id)" :alt="item.thumbnail?.alt_text" />
+                    <img :src="getImgUrl(item.image_id)" :alt="item.thumbnail?.alt_text" class="card-img-top">
                 </a>
-                <div class="artwork__title">
-                    <div class="artwork__title-artwork">{{ item.title }}</div>
-                    <div class="artwork__title-artist">{{ item.artist_display }}</div>
+                <div class="card-body">
+                    <div class="card-title artwork__title-artwork">{{ item.title }}</div>
+                    <div class="card-text artwork__title-artist">{{ item.artist_display }}</div>
                 </div>
             </div>
         </li>
@@ -46,9 +46,10 @@ export default {
 .artwork {
     list-style: none;
     border-style: solid;
-    border-color: #d2d2d2;
-    border-width: 2px;
     padding: 5px;
+    color: #fff;
+    border-color: #d2d2d2;
+    background: rgba(0, 0, 0, .25);
 }
 
 li {
@@ -71,6 +72,7 @@ img {
     color: #fff;
     font-weight: bold;
 }
+
 .artwork__title-artist {
     color: #d2d2d2;
 }

@@ -1,6 +1,4 @@
 <script lang="ts">
-import { stringifyExpression } from '@vue/compiler-core';
-
 export default {
     name: 'SearchField',
     props: [],
@@ -19,8 +17,13 @@ export default {
 
 <template>
     <div class="search-field">
-        <input class="search-input" type="text" placeholder="Search" v-model="query" @keydown.enter="onQuery" />
-        <button class="search-button" @click="onQuery">Search</button>
+        <div class="input-group mb-3">
+            <input v-model="query" @keydown.enter="onQuery" type="text" class="form-control search-input"
+                placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
+            <span class="input-group-text">
+                <button type="button" class="search-button btn btn-dark" @click="onQuery">Search</button>
+            </span>
+        </div>
     </div>
 </template>
 
@@ -29,22 +32,19 @@ export default {
     margin: 5px;
 }
 
-.search-input {
+.input-group {
+}
+
+.search-input, .input-group-text {
     color: #fff;
-    display: inline-block;
-    width: 400px;
-    padding: 8px 12px 10px 12px;
-    border: 1px solid #d2d2d2;
     background: rgba(0, 0, 0, .25);
 }
 
+.input-group-text {
+    padding: 0;
+}
 .search-button {
     display: inline-block;
-    background: rgba(0, 0, 0, .25);
-    color: #fff;
-    width: 55px;
-    padding: 0px;
-    border: 1px solid #d2d2d2;
 }
 
 [placeholder]::-webkit-input-placeholder {
