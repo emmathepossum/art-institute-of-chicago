@@ -44,14 +44,16 @@ export default {
 </script>
 
 <template>
+  <div class="w-75 mx-auto">
   <SearchField @queried="handleQuery" />
   <div v-if="isEmpty">There are no results for this query</div>
   <ArtworkList v-if="isLoaded" :data="artworkData" />
+</div>
 </template>
 
 <style>
 body {
-  background-color: #252525;
-  color: #fff;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 </style>

@@ -37,19 +37,19 @@ export default {
 .artwork-list {
     display: grid;
     justify-content: center;
-    gap: 10px;
-    grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
-    grid-template-rows: repeat(auto-fill, 1fr);
-    margin: 5px;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr 1fr auto;
 }
 
 .artwork {
-    list-style: none;
-    border-style: solid;
-    padding: 5px;
-    color: #fff;
-    border-color: #d2d2d2;
-    background: rgba(0, 0, 0, .25);
+    width: 350px;
+    height: 600px;
+    box-shadow: 5px 2px 2px var(--bs-border-color-translucent);
+}
+
+.artwork:hover {
+    transform: scale(1.05);
+    border-width: 2px;
 }
 
 li {
@@ -57,24 +57,19 @@ li {
 }
 
 img {
-    max-width: 100%;
-    max-height: 100%;
-    display: block;
-}
-
-.artwork__title {
-    text-align: center;
+    height: 400px;
+    padding: 5px;
+    object-fit: contain;
 }
 
 .artwork__title-artwork {
-    font-size: 20px;
+    font-size: 16px;
     margin-bottom: 5px;
-    color: #fff;
     font-weight: bold;
 }
 
 .artwork__title-artist {
-    color: #d2d2d2;
+    font-size: 14px;
 }
 
 :link {

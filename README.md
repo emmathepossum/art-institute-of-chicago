@@ -1,7 +1,7 @@
 
 ## Vue App to display the Library for the Art Institute of Chicago
 
-Accessible on https://chicago.yeetin.me/
+run dev enviornment: `npm run dev`
 
 run cypress tests: `npx cypress run`
 
